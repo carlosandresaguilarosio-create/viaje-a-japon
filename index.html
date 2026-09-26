@@ -3,646 +3,2016 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Japón 2027 🇯🇵</title>
+
+<title>Japón 2028 🇯🇵</title>
 
 <style>
+
+/* =========================================================
+   JAPÓN 2028 — DISEÑO
+   ========================================================= */
+
+:root {
+    --rojo-japon: #c8102e;
+    --rojo-oscuro: #9e1028;
+    --rosa-sakura: #f8dce3;
+    --rosa-suave: #fff3f5;
+    --crema: #fffaf4;
+    --blanco: #ffffff;
+    --negro: #202020;
+    --gris: #667085;
+    --gris-claro: #eef0f3;
+    --dorado: #c99a3d;
+    --verde: #3f7355;
+    --sombra: 0 10px 30px rgba(60, 25, 25, 0.08);
+}
+
 * {
     box-sizing: border-box;
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
 body {
     margin: 0;
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-    background: #f5f7fb;
-    color: #172033;
+    font-family:
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        sans-serif;
+
+    background:
+        radial-gradient(
+            circle at 10% 10%,
+            rgba(248,220,227,.7),
+            transparent 25%
+        ),
+        linear-gradient(
+            180deg,
+            #fffaf7 0%,
+            #fffdfb 45%,
+            #f8f6f3 100%
+        );
+
+    color: var(--negro);
 }
 
-.container {
-    max-width: 600px;
-    margin: auto;
-    padding: 18px;
+/* =========================================================
+   FLORES DECORATIVAS
+   ========================================================= */
+
+.sakura {
+    position: fixed;
+    font-size: 25px;
+    opacity: .20;
+    pointer-events: none;
+    z-index: 0;
 }
 
-.header {
-    text-align: center;
-    padding: 20px 10px;
+.sakura.one {
+    top: 90px;
+    left: 5%;
 }
 
-.header h1 {
-    margin: 0;
+.sakura.two {
+    top: 350px;
+    right: 4%;
     font-size: 30px;
 }
 
-.header p {
-    color: #667085;
+.sakura.three {
+    top: 720px;
+    left: 3%;
+    font-size: 20px;
 }
+
+/* =========================================================
+   CONTENEDOR
+   ========================================================= */
+
+.container {
+    position: relative;
+    z-index: 1;
+
+    width: min(100% - 28px, 650px);
+
+    margin: auto;
+
+    padding: 16px 0 50px;
+}
+
+/* =========================================================
+   HERO
+   ========================================================= */
+
+.hero {
+    position: relative;
+
+    overflow: hidden;
+
+    text-align: center;
+
+    padding: 32px 20px 28px;
+
+    margin-bottom: 18px;
+
+    color: white;
+
+    border-radius: 28px;
+
+    background:
+        radial-gradient(
+            circle at 75% 20%,
+            rgba(255,255,255,.18),
+            transparent 20%
+        ),
+        linear-gradient(
+            145deg,
+            #a80f2b,
+            #c8102e 55%,
+            #8e1026
+        );
+
+    box-shadow:
+        0 15px 35px rgba(160, 20, 45, .22);
+}
+
+/* Sol naciente */
+
+.hero::after {
+    content: "";
+
+    position: absolute;
+
+    width: 170px;
+    height: 170px;
+
+    border-radius: 50%;
+
+    background: rgba(255,255,255,.12);
+
+    top: -80px;
+    right: -50px;
+}
+
+.hero-top {
+    position: relative;
+    z-index: 2;
+
+    font-size: 14px;
+
+    letter-spacing: 2px;
+
+    opacity: .85;
+
+    margin-bottom: 8px;
+}
+
+.hero h1 {
+    position: relative;
+    z-index: 2;
+
+    margin: 0;
+
+    font-size: clamp(34px, 9vw, 52px);
+
+    font-weight: 900;
+
+    letter-spacing: -1px;
+}
+
+.hero h1 span {
+    display: block;
+
+    font-size: 20px;
+
+    font-weight: 500;
+
+    letter-spacing: 4px;
+
+    margin-top: 5px;
+}
+
+.hero p {
+    position: relative;
+    z-index: 2;
+
+    margin: 15px 0 0;
+
+    opacity: .92;
+
+    font-size: 15px;
+}
+
+/* =========================================================
+   NAVEGACIÓN
+   ========================================================= */
+
+.quick-nav {
+    display: grid;
+
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 8px;
+
+    margin-bottom: 18px;
+}
+
+.quick-nav a {
+    text-decoration: none;
+
+    text-align: center;
+
+    padding: 11px 6px;
+
+    border-radius: 14px;
+
+    background: white;
+
+    color: var(--negro);
+
+    font-size: 12px;
+
+    font-weight: 700;
+
+    box-shadow: 0 4px 15px rgba(0,0,0,.06);
+
+    transition: .2s;
+}
+
+.quick-nav a:hover {
+    transform: translateY(-2px);
+
+    color: var(--rojo-japon);
+}
+
+.quick-nav span {
+    display: block;
+
+    font-size: 19px;
+
+    margin-bottom: 3px;
+}
+
+/* =========================================================
+   TARJETAS
+   ========================================================= */
 
 .card {
-    background: white;
-    border-radius: 18px;
-    padding: 18px;
-    margin-bottom: 14px;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    background: rgba(255,255,255,.94);
+
+    border: 1px solid rgba(200,16,46,.06);
+
+    border-radius: 22px;
+
+    padding: 20px;
+
+    margin-bottom: 15px;
+
+    box-shadow: var(--sombra);
+
+    backdrop-filter: blur(5px);
 }
 
-.label {
-    color: #667085;
-    font-size: 13px;
+.card h2,
+.card h3 {
+    margin-top: 0;
+
+    color: var(--negro);
+}
+
+.card h3 {
+    font-size: 19px;
+
+    margin-bottom: 17px;
+}
+
+/* =========================================================
+   CUENTA ATRÁS
+   ========================================================= */
+
+.countdown-card {
+    position: relative;
+
+    overflow: hidden;
+
+    color: white;
+
+    background:
+        linear-gradient(
+            135deg,
+            #242424,
+            #171717
+        );
+
+    border: none;
+}
+
+.countdown-card::before {
+    content: "🌸";
+
+    position: absolute;
+
+    right: 18px;
+    top: 12px;
+
+    font-size: 45px;
+
+    opacity: .18;
+}
+
+.countdown-label {
+    color: #f5cfd7;
+
+    font-size: 12px;
+
+    font-weight: 800;
+
+    letter-spacing: 2px;
+}
+
+.countdown-title {
+    margin: 8px 0 16px;
+
+    font-size: 22px;
+
+    font-weight: 800;
+}
+
+.countdown-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(4, 1fr);
+
+    gap: 8px;
+}
+
+.time-box {
+    background: rgba(255,255,255,.08);
+
+    border: 1px solid rgba(255,255,255,.08);
+
+    border-radius: 14px;
+
+    padding: 12px 4px;
+
+    text-align: center;
+}
+
+.time-number {
+    display: block;
+
+    font-size: 24px;
+
+    font-weight: 900;
+
+    color: white;
+}
+
+.time-label {
+    font-size: 9px;
+
+    color: #bbb;
+
+    text-transform: uppercase;
+
+    letter-spacing: .7px;
+}
+
+.target-date {
+    margin-top: 14px;
+
+    font-size: 12px;
+
+    color: #aaa;
+
+    text-align: center;
+}
+
+/* =========================================================
+   META
+   ========================================================= */
+
+.goal-card {
+    background:
+        linear-gradient(
+            135deg,
+            #fff,
+            #fff6f7
+        );
+}
+
+.section-label {
+    color: var(--rojo-japon);
+
+    font-size: 12px;
+
+    font-weight: 900;
+
+    letter-spacing: 1.5px;
 }
 
 .big {
-    font-size: 30px;
-    font-weight: 800;
+    font-size: 31px;
+
+    font-weight: 900;
+
     margin-top: 4px;
 }
 
+.goal-top {
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: flex-end;
+
+    gap: 10px;
+
+    margin-top: 5px;
+}
+
+.goal-percentage {
+    color: var(--rojo-japon);
+
+    font-size: 18px;
+
+    font-weight: 900;
+}
+
+.remaining {
+    color: var(--gris);
+
+    font-size: 13px;
+
+    text-align: right;
+}
+
+/* Barra */
+
 .progress-background {
-    height: 20px;
-    background: #e5e7eb;
-    border-radius: 20px;
+    height: 25px;
+
+    background: #f0e7e8;
+
+    border-radius: 50px;
+
     overflow: hidden;
-    margin-top: 12px;
+
+    margin-top: 14px;
+
+    padding: 3px;
 }
 
 .progress {
     height: 100%;
+
     width: 0%;
-    background: #2563eb;
-    transition: width .3s;
+
+    min-width: 0;
+
+    border-radius: 50px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #a90d2a,
+            #c8102e,
+            #df526b
+        );
+
+    transition:
+        width .6s ease;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: flex-end;
 }
+
+.progress::after {
+    content: "";
+
+    width: 8px;
+    height: 8px;
+
+    margin-right: 5px;
+
+    border-radius: 50%;
+
+    background: white;
+
+    opacity: .8;
+}
+
+.status {
+    margin-bottom: 0;
+
+    color: var(--gris);
+
+    font-size: 13px;
+}
+
+/* =========================================================
+   PERSONAS
+   ========================================================= */
 
 .stats {
     display: grid;
-    grid-template-columns: repeat(2,1fr);
-    gap: 10px;
+
+    grid-template-columns: repeat(2, 1fr);
+
+    gap: 12px;
+
+    margin-bottom: 15px;
 }
 
 .stat {
-    background: #f8fafc;
-    border-radius: 14px;
-    padding: 14px;
-}
+    position: relative;
 
-input, select, button {
-    width: 100%;
-    padding: 13px;
-    border-radius: 10px;
-    font-size: 16px;
-}
+    overflow: hidden;
 
-input, select {
-    border: 1px solid #d0d5dd;
     background: white;
+
+    border-radius: 20px;
+
+    padding: 17px;
+
+    box-shadow: var(--sombra);
+
+    border-top: 4px solid var(--rojo-japon);
 }
 
-button {
-    border: none;
-    background: #2563eb;
-    color: white;
-    font-weight: 700;
-    cursor: pointer;
+.stat.maria {
+    border-top-color: #d98da0;
 }
 
-button.secondary {
-    background: white;
-    color: #172033;
-    border: 1px solid #d0d5dd;
-}
-
-.form-group {
-    margin-bottom: 12px;
-}
-
-.form-group label {
-    display: block;
-    margin-bottom: 6px;
+.person {
     font-size: 13px;
-    color: #667085;
+
+    color: var(--gris);
+
+    font-weight: 700;
 }
+
+.person-emoji {
+    font-size: 24px;
+
+    margin-bottom: 5px;
+}
+
+.person-value {
+    font-size: 25px;
+
+    font-weight: 900;
+
+    margin-top: 5px;
+}
+
+/* =========================================================
+   FILAS
+   ========================================================= */
 
 .row {
     display: flex;
+
     justify-content: space-between;
-    padding: 11px 0;
-    border-bottom: 1px solid #edf0f3;
+
+    align-items: center;
+
+    gap: 12px;
+
+    padding: 12px 0;
+
+    border-bottom: 1px solid #f0eeee;
+
+    font-size: 14px;
 }
 
 .row:last-child {
     border-bottom: none;
 }
 
-.success {
-    background: #ecfdf3;
-    color: #067647;
-    padding: 14px;
-    border-radius: 12px;
+.row strong {
+    color: var(--negro);
+
+    white-space: nowrap;
 }
+
+/* =========================================================
+   FORMULARIO
+   ========================================================= */
+
+.form-group {
+    margin-bottom: 14px;
+}
+
+.form-group label {
+    display: block;
+
+    margin-bottom: 7px;
+
+    font-size: 13px;
+
+    color: var(--gris);
+
+    font-weight: 700;
+}
+
+input,
+select {
+    width: 100%;
+
+    padding: 14px;
+
+    border-radius: 13px;
+
+    font-size: 16px;
+
+    border: 1px solid #ddd4d6;
+
+    background: #fff;
+
+    color: var(--negro);
+
+    outline: none;
+
+    transition: .2s;
+}
+
+input:focus,
+select:focus {
+    border-color: var(--rojo-japon);
+
+    box-shadow:
+        0 0 0 3px rgba(200,16,46,.10);
+}
+
+/* =========================================================
+   BOTONES
+   ========================================================= */
+
+button {
+    width: 100%;
+
+    padding: 15px;
+
+    border: none;
+
+    border-radius: 14px;
+
+    font-size: 16px;
+
+    font-weight: 800;
+
+    cursor: pointer;
+
+    color: white;
+
+    background:
+        linear-gradient(
+            135deg,
+            #c8102e,
+            #a90d29
+        );
+
+    box-shadow:
+        0 7px 18px rgba(200,16,46,.20);
+
+    transition:
+        transform .15s,
+        box-shadow .15s;
+}
+
+button:hover {
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 10px 22px rgba(200,16,46,.27);
+}
+
+button:active {
+    transform: scale(.98);
+}
+
+button.secondary {
+    color: var(--rojo-japon);
+
+    background: white;
+
+    border: 1px solid #ead1d5;
+
+    box-shadow: none;
+}
+
+/* =========================================================
+   HISTORIAL
+   ========================================================= */
 
 .history {
-    max-height: 250px;
+    max-height: 280px;
+
     overflow-y: auto;
+
+    scrollbar-width: thin;
 }
 
-.small {
-    font-size: 13px;
-    color: #667085;
+.history .row {
+    padding: 13px 3px;
 }
+
+.history .row span::before {
+    content: "🌸 ";
+
+    font-size: 12px;
+}
+
+/* =========================================================
+   PRESUPUESTO
+   ========================================================= */
+
+.budget-row {
+    display: flex;
+
+    align-items: center;
+
+    gap: 10px;
+}
+
+.budget-icon {
+    width: 36px;
+    height: 36px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    border-radius: 11px;
+
+    background: var(--rosa-suave);
+
+    flex-shrink: 0;
+}
+
+.budget-info {
+    flex: 1;
+}
+
+.budget-name {
+    font-size: 13px;
+
+    color: var(--gris);
+}
+
+.budget-value {
+    font-weight: 800;
+
+    margin-top: 2px;
+}
+
+/* =========================================================
+   OBJETIVO
+   ========================================================= */
+
+.success {
+    background:
+        linear-gradient(
+            135deg,
+            #fff4e6,
+            #fffaf1
+        );
+
+    color: #70551c;
+
+    padding: 16px;
+
+    border-radius: 15px;
+
+    border: 1px solid #f1dfb5;
+}
+
+/* =========================================================
+   FOOTER
+   ========================================================= */
+
+.footer {
+    text-align: center;
+
+    padding: 25px 10px;
+
+    color: #999;
+
+    font-size: 12px;
+}
+
+.footer .japanese {
+    font-size: 22px;
+
+    margin-bottom: 5px;
+}
+
+/* =========================================================
+   RESPONSIVE
+   ========================================================= */
 
 @media (max-width: 450px) {
-    .stats {
-        grid-template-columns: 1fr;
+
+    .container {
+        width: min(100% - 20px, 650px);
+
+        padding-top: 10px;
     }
+
+    .hero {
+        border-radius: 24px;
+
+        padding: 27px 16px 25px;
+    }
+
+    .hero h1 {
+        font-size: 37px;
+    }
+
+    .card {
+        padding: 17px;
+
+        border-radius: 19px;
+    }
+
+    .countdown-grid {
+        gap: 5px;
+    }
+
+    .time-box {
+        padding: 10px 2px;
+    }
+
+    .time-number {
+        font-size: 21px;
+    }
+
+    .stats {
+        gap: 9px;
+    }
+
+    .stat {
+        padding: 14px;
+    }
+
+    .person-value {
+        font-size: 22px;
+    }
+
 }
+
+@media (max-width: 350px) {
+
+    .quick-nav a {
+        font-size: 10px;
+    }
+
+    .quick-nav span {
+        font-size: 17px;
+    }
+
+    .countdown-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+}
+
 </style>
 </head>
 
 <body>
 
+<!-- Decoración -->
+<div class="sakura one">🌸</div>
+<div class="sakura two">🌸</div>
+<div class="sakura three">🌸</div>
+
+
 <div class="container">
 
-<div class="header">
-    <h1>🇯🇵 Japón 2027</h1>
-    <p>Fondo de ahorro para nuestro viaje</p>
-</div>
 
-<div class="card">
+<!-- =====================================================
+     HERO
+     ===================================================== -->
 
-<div class="label">🎯 META TOTAL</div>
+<header class="hero">
 
-<div class="big">5.500 €</div>
+    <div class="hero-top">
+        ⛩️ NUESTRA AVENTURA
+    </div>
 
-<div style="display:flex;justify-content:space-between;margin-top:15px;">
-    <strong id="percentage">0%</strong>
-    <span id="remaining">Faltan 5.500 €</span>
-</div>
+    <h1>
+        🇯🇵 JAPÓN 2028
+        <span>日本への旅</span>
+    </h1>
 
-<div class="progress-background">
-    <div class="progress" id="progress"></div>
-</div>
+    <p>
+        Un viaje que empieza mucho antes de subir al avión 🌸
+    </p>
 
-<p class="small" id="status">
-    Todavía no hay ahorro registrado.
-</p>
+</header>
 
-</div>
 
+<!-- =====================================================
+     NAVEGACIÓN
+     ===================================================== -->
+
+<nav class="quick-nav">
+
+    <a href="#cuenta">
+        <span>⏳</span>
+        Cuenta atrás
+    </a>
+
+    <a href="#ahorro">
+        <span>💴</span>
+        Ahorro
+    </a>
+
+    <a href="#presupuesto">
+        <span>🧳</span>
+        Presupuesto
+    </a>
+
+</nav>
+
+
+<!-- =====================================================
+     CUENTA ATRÁS
+     ===================================================== -->
+
+<section class="card countdown-card" id="cuenta">
+
+    <div class="countdown-label">
+        ⏳ CUENTA ATRÁS
+    </div>
+
+    <div class="countdown-title">
+        Hasta nuestro viaje a Japón
+    </div>
+
+    <div class="countdown-grid">
+
+        <div class="time-box">
+            <span
+                class="time-number"
+                id="days">
+                0
+            </span>
+
+            <span class="time-label">
+                días
+            </span>
+        </div>
+
+        <div class="time-box">
+            <span
+                class="time-number"
+                id="hours">
+                0
+            </span>
+
+            <span class="time-label">
+                horas
+            </span>
+        </div>
+
+        <div class="time-box">
+            <span
+                class="time-number"
+                id="minutes">
+                0
+            </span>
+
+            <span class="time-label">
+                minutos
+            </span>
+        </div>
+
+        <div class="time-box">
+            <span
+                class="time-number"
+                id="seconds">
+                0
+            </span>
+
+            <span class="time-label">
+                segundos
+            </span>
+        </div>
+
+    </div>
+
+    <div class="target-date">
+        🎌 Fecha tentativa: 15 de marzo de 2028
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     META DE AHORRO
+     ===================================================== -->
+
+<section class="card goal-card" id="ahorro">
+
+    <div class="section-label">
+        🎯 META TOTAL
+    </div>
+
+    <div class="big">
+        5.500 €
+    </div>
+
+    <div class="goal-top">
+
+        <strong
+            class="goal-percentage"
+            id="percentage">
+            0%
+        </strong>
+
+        <span
+            class="remaining"
+            id="remaining">
+            Faltan 5.500 €
+        </span>
+
+    </div>
+
+    <div class="progress-background">
+
+        <div
+            class="progress"
+            id="progress">
+        </div>
+
+    </div>
+
+    <p
+        class="status"
+        id="status">
+        Todavía no hay ahorro registrado.
+    </p>
+
+</section>
+
+
+<!-- =====================================================
+     CARLOS / MARÍA
+     ===================================================== -->
 
 <div class="stats">
 
-<div class="stat">
-    <div class="label">👨 Carlos</div>
-    <div class="big" id="carlos">0 €</div>
-</div>
+    <div class="stat">
 
-<div class="stat">
-    <div class="label">👩 María</div>
-    <div class="big" id="maria">0 €</div>
-</div>
+        <div class="person-emoji">
+            👨🏻‍⚕️
+        </div>
 
-</div>
+        <div class="person">
+            CARLOS
+        </div>
 
+        <div
+            class="person-value"
+            id="carlos">
+            0 €
+        </div>
 
-<div class="card">
-
-<h3>📊 Situación actual</h3>
-
-<div class="row">
-    <span>💰 Ahorrado</span>
-    <strong id="saved">0 €</strong>
-</div>
-
-<div class="row">
-    <span>❌ Falta</span>
-    <strong id="left">5.500 €</strong>
-</div>
-
-<div class="row">
-    <span>📅 Necesario por mes</span>
-    <strong id="monthly">459 €</strong>
-</div>
-
-</div>
+    </div>
 
 
-<div class="card">
+    <div class="stat maria">
 
-<h3>➕ Registrar ahorro</h3>
+        <div class="person-emoji">
+            👩🏻‍⚕️
+        </div>
 
-<form id="savingForm">
+        <div class="person">
+            MARÍA
+        </div>
 
-<div class="form-group">
-<label>¿Quién aporta?</label>
+        <div
+            class="person-value"
+            id="maria">
+            0 €
+        </div>
 
-<select id="person">
-<option value="Carlos">Carlos</option>
-<option value="María">María</option>
-</select>
+    </div>
 
 </div>
 
 
-<div class="form-group">
-<label>Cantidad (€)</label>
+<!-- =====================================================
+     SITUACIÓN
+     ===================================================== -->
 
-<input
-type="number"
-id="amount"
-placeholder="230"
-min="0.01"
-step="0.01"
-required
->
+<section class="card">
 
-</div>
+    <h3>
+        📊 Situación del viaje
+    </h3>
 
+    <div class="row">
+        <span>💰 Ahorrado</span>
 
-<div class="form-group">
-<label>Mes</label>
+        <strong id="saved">
+            0 €
+        </strong>
+    </div>
 
-<select id="month">
+    <div class="row">
+        <span>🎯 Falta</span>
 
-<option>Enero</option>
-<option>Febrero</option>
-<option>Marzo</option>
-<option>Abril</option>
-<option>Mayo</option>
-<option>Junio</option>
-<option>Julio</option>
-<option>Agosto</option>
-<option>Septiembre</option>
-<option>Octubre</option>
-<option>Noviembre</option>
-<option>Diciembre</option>
+        <strong id="left">
+            5.500 €
+        </strong>
+    </div>
 
-</select>
+    <div class="row">
+        <span>📅 Necesario por mes</span>
 
-</div>
+        <strong id="monthly">
+            459 €
+        </strong>
+    </div>
 
-<button type="submit">
-Guardar aporte 💰
-</button>
-
-</form>
-
-</div>
+</section>
 
 
-<div class="card">
+<!-- =====================================================
+     REGISTRAR AHORRO
+     ===================================================== -->
 
-<h3>🧾 Historial</h3>
+<section class="card">
 
-<div id="history" class="history">
-<p class="small">Todavía no hay aportes.</p>
-</div>
+    <h3>
+        🌸 Registrar nuevo aporte
+    </h3>
 
-<br>
+    <form id="savingForm">
 
-<button
-class="secondary"
-id="clearButton"
-type="button">
+        <div class="form-group">
 
-Borrar historial
+            <label>
+                👤 ¿Quién aporta?
+            </label>
 
-</button>
+            <select id="person">
 
-</div>
+                <option value="Carlos">
+                    👨🏻‍⚕️ Carlos
+                </option>
 
+                <option value="María">
+                    👩🏻‍⚕️ María
+                </option>
 
-<div class="card">
+            </select>
 
-<h3>🧳 Presupuesto Japón</h3>
-
-<div class="row">
-<span>✈️ Vuelos</span>
-<strong>2.000 €</strong>
-</div>
-
-<div class="row">
-<span>🏨 Hoteles</span>
-<strong>900 €</strong>
-</div>
-
-<div class="row">
-<span>🚄 Transporte</span>
-<strong>400 €</strong>
-</div>
-
-<div class="row">
-<span>🍜 Comida</span>
-<strong>650 €</strong>
-</div>
-
-<div class="row">
-<span>🎎 Actividades</span>
-<strong>250 €</strong>
-</div>
-
-<div class="row">
-<span>🛍️ Compras</span>
-<strong>800 €</strong>
-</div>
-
-<div class="row">
-<span>🛡️ Seguro + imprevistos</span>
-<strong>500 €</strong>
-</div>
-
-</div>
+        </div>
 
 
-<div class="card">
+        <div class="form-group">
 
-<h3>🎯 Objetivo</h3>
+            <label>
+                💴 Cantidad (€)
+            </label>
 
-<div id="message" class="small">
+            <input
+                type="number"
+                id="amount"
+                placeholder="Ej. 230"
+                min="0.01"
+                step="0.01"
+                required
+            >
 
-Si cada uno aporta aproximadamente 230 € al mes,
-llegarán prácticamente a los 5.500 € en 12 meses.
+        </div>
 
-</div>
 
-</div>
+        <div class="form-group">
+
+            <label>
+                📅 Mes
+            </label>
+
+            <select id="month">
+
+                <option>Enero</option>
+                <option>Febrero</option>
+                <option>Marzo</option>
+                <option>Abril</option>
+                <option>Mayo</option>
+                <option>Junio</option>
+                <option>Julio</option>
+                <option>Agosto</option>
+                <option>Septiembre</option>
+                <option>Octubre</option>
+                <option>Noviembre</option>
+                <option>Diciembre</option>
+
+            </select>
+
+        </div>
+
+
+        <button type="submit">
+            ＋ Guardar aporte 💴
+        </button>
+
+    </form>
+
+</section>
+
+
+<!-- =====================================================
+     HISTORIAL
+     ===================================================== -->
+
+<section class="card">
+
+    <h3>
+        🧾 Historial de aportes
+    </h3>
+
+    <div
+        id="history"
+        class="history">
+
+        <p class="small">
+            Todavía no hay aportes.
+        </p>
+
+    </div>
+
+    <br>
+
+    <button
+        class="secondary"
+        id="clearButton"
+        type="button">
+
+        🗑️ Borrar historial
+
+    </button>
+
+</section>
+
+
+<!-- =====================================================
+     PRESUPUESTO
+     ===================================================== -->
+
+<section
+    class="card"
+    id="presupuesto">
+
+    <h3>
+        🧳 Presupuesto Japón
+    </h3>
+
+
+    <div class="row">
+
+        <div class="budget-row">
+
+            <div class="budget-icon">
+                ✈️
+            </div>
+
+            <div class="budget-info">
+
+                <div class="budget-name">
+                    Vuelos
+                </div>
+
+                <div class="budget-value">
+                    2.000 €
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <div class="row">
+
+        <div class="budget-row">
+
+            <div class="budget-icon">
+                🏨
+            </div>
+
+            <div class="budget-info">
+
+                <div class="budget-name">
+                    Hoteles
+                </div>
+
+                <div class="budget-value">
+                    900 €
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <div class="row">
+
+        <div class="budget-row">
+
+            <div class="budget-icon">
+                🚄
+            </div>
+
+            <div class="budget-info">
+
+                <div class="budget-name">
+                    Transporte
+                </div>
+
+                <div class="budget-value">
+                    400 €
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <div class="row">
+
+        <div class="budget-row">
+
+            <div class="budget-icon">
+                🍜
+            </div>
+
+            <div class="budget-info">
+
+                <div class="budget-name">
+                    Comida
+                </div>
+
+                <div class="budget-value">
+                    650 €
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <div class="row">
+
+        <div class="budget-row">
+
+            <div class="budget-icon">
+                🎎
+            </div>
+
+            <div class="budget-info">
+
+                <div class="budget-name">
+                    Actividades
+                </div>
+
+                <div class="budget-value">
+                    250 €
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <div class="row">
+
+        <div class="budget-row">
+
+            <div class="budget-icon">
+                🛍️
+            </div>
+
+            <div class="budget-info">
+
+                <div class="budget-name">
+                    Compras
+                </div>
+
+                <div class="budget-value">
+                    800 €
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <div class="row">
+
+        <div class="budget-row">
+
+            <div class="budget-icon">
+                🛡️
+            </div>
+
+            <div class="budget-info">
+
+                <div class="budget-name">
+                    Seguro + imprevistos
+                </div>
+
+                <div class="budget-value">
+                    500 €
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     OBJETIVO
+     ===================================================== -->
+
+<section class="card">
+
+    <h3>
+        🎯 Nuestro objetivo
+    </h3>
+
+    <div
+        id="message"
+        class="success">
+
+        Si cada uno aporta aproximadamente
+        230 € al mes, llegarán prácticamente
+        a los 5.500 € en 12 meses.
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     FOOTER
+     ===================================================== -->
+
+<footer class="footer">
+
+    <div class="japanese">
+        🌸 ⛩️ 🌸
+    </div>
+
+    <strong>
+        またね、日本！
+    </strong>
+
+    <br>
+
+    Nos vemos, Japón 🇯🇵
+
+</footer>
+
 
 </div>
 
 
 <script>
 
+/* =========================================================
+   CONFIGURACIÓN
+   ========================================================= */
+
 const META = 5500;
+
+
+/*
+   Fecha tentativa del viaje:
+
+   15 de marzo de 2028
+
+   Si posteriormente tienen una fecha definitiva,
+   solo cambia esta fecha.
+*/
+
+const FECHA_VIAJE =
+    new Date("2028-03-15T12:00:00");
+
+
+/* =========================================================
+   AHORROS
+   ========================================================= */
 
 let aportes = [];
 
+
+/* =========================================================
+   FORMATO EURO
+   ========================================================= */
+
 const formatoEuro = cantidad => {
 
-return new Intl.NumberFormat(
-"es-ES",
-{
-style:"currency",
-currency:"EUR",
-maximumFractionDigits:0
-}
-).format(cantidad);
+    return new Intl.NumberFormat(
+        "es-ES",
+        {
+            style: "currency",
+            currency: "EUR",
+            maximumFractionDigits: 0
+        }
+    ).format(cantidad);
 
 };
 
 
+/* =========================================================
+   LOCAL STORAGE
+   ========================================================= */
+
 function guardarDatos() {
 
-localStorage.setItem(
-"japon2027_aportes",
-JSON.stringify(aportes)
-);
+    localStorage.setItem(
+        "japon2027_aportes",
+        JSON.stringify(aportes)
+    );
 
 }
 
 
 function cargarDatos() {
 
-const datos = localStorage.getItem(
-"japon2027_aportes"
-);
+    const datos =
+        localStorage.getItem(
+            "japon2027_aportes"
+        );
 
-if(datos) {
+    if (datos) {
 
-try {
+        try {
 
-aportes = JSON.parse(datos);
+            aportes = JSON.parse(datos);
 
-} catch {
+        } catch {
 
-aportes = [];
+            aportes = [];
+
+        }
+
+    }
 
 }
 
-}
 
-}
-
+/* =========================================================
+   ACTUALIZAR AHORRO
+   ========================================================= */
 
 function actualizar() {
 
-let totalCarlos = 0;
-let totalMaria = 0;
+    let totalCarlos = 0;
 
-aportes.forEach(aporte => {
+    let totalMaria = 0;
 
-if(aporte.persona === "Carlos") {
 
-totalCarlos += aporte.cantidad;
+    aportes.forEach(aporte => {
+
+        if (aporte.persona === "Carlos") {
+
+            totalCarlos += Number(aporte.cantidad);
+
+        }
+
+        if (aporte.persona === "María") {
+
+            totalMaria += Number(aporte.cantidad);
+
+        }
+
+    });
+
+
+    const total =
+        totalCarlos + totalMaria;
+
+
+    const falta =
+        Math.max(
+            0,
+            META - total
+        );
+
+
+    const porcentaje =
+        Math.min(
+            100,
+            (total / META) * 100
+        );
+
+
+    document.getElementById("carlos")
+        .textContent =
+        formatoEuro(totalCarlos);
+
+
+    document.getElementById("maria")
+        .textContent =
+        formatoEuro(totalMaria);
+
+
+    document.getElementById("saved")
+        .textContent =
+        formatoEuro(total);
+
+
+    document.getElementById("left")
+        .textContent =
+        formatoEuro(falta);
+
+
+    document.getElementById("percentage")
+        .textContent =
+        porcentaje.toFixed(1) + "%";
+
+
+    document.getElementById("remaining")
+        .textContent =
+        falta === 0
+        ? "🎌 ¡Meta alcanzada!"
+        : "Faltan " +
+          formatoEuro(falta);
+
+
+    document.getElementById("progress")
+        .style.width =
+        porcentaje + "%";
+
+
+    /*
+       Cálculo mensual.
+
+       Se mantiene la lógica original:
+       lo que falta dividido entre 12 meses.
+    */
+
+    const mensual =
+        falta / 12;
+
+
+    document.getElementById("monthly")
+        .textContent =
+        formatoEuro(mensual);
+
+
+    if (falta === 0) {
+
+        document.getElementById("status")
+            .innerHTML =
+            "🎉 <strong>¡Meta conseguida!</strong>";
+
+
+        document.getElementById("message")
+            .innerHTML =
+            "🎌 <strong>¡5.500 € conseguidos!</strong><br>" +
+            "Ahora pueden concentrarse en reservar vuelos y hoteles.";
+
+    } else {
+
+        document.getElementById("status")
+            .textContent =
+            "Ya tienen " +
+            porcentaje.toFixed(1) +
+            "% del objetivo.";
+
+
+        document.getElementById("message")
+            .textContent =
+            "Para conseguir lo que falta en 12 meses necesitan aproximadamente " +
+            formatoEuro(mensual) +
+            " al mes entre los dos.";
+
+    }
+
+
+    mostrarHistorial();
 
 }
 
-if(aporte.persona === "María") {
 
-totalMaria += aporte.cantidad;
-
-}
-
-});
-
-
-const total = totalCarlos + totalMaria;
-
-const falta = Math.max(
-0,
-META - total
-);
-
-const porcentaje = Math.min(
-100,
-(total / META) * 100
-);
-
-
-document.getElementById("carlos")
-.textContent = formatoEuro(totalCarlos);
-
-document.getElementById("maria")
-.textContent = formatoEuro(totalMaria);
-
-document.getElementById("saved")
-.textContent = formatoEuro(total);
-
-document.getElementById("left")
-.textContent = formatoEuro(falta);
-
-document.getElementById("percentage")
-.textContent = porcentaje.toFixed(1) + "%";
-
-document.getElementById("remaining")
-.textContent =
-falta === 0
-? "🎌 ¡Meta alcanzada!"
-: "Faltan " + formatoEuro(falta);
-
-
-document.getElementById("progress")
-.style.width = porcentaje + "%";
-
-
-const mensual = falta / 12;
-
-document.getElementById("monthly")
-.textContent = formatoEuro(mensual);
-
-
-if(falta === 0) {
-
-document.getElementById("status")
-.innerHTML =
-"🎉 <strong>¡Han conseguido la meta de Japón!</strong>";
-
-document.getElementById("message")
-.innerHTML =
-"🎌 ¡5.500 € conseguidos! Ahora pueden concentrarse en reservar vuelos y hoteles.";
-
-} else {
-
-document.getElementById("status")
-.textContent =
-"Ya tienen " +
-porcentaje.toFixed(1) +
-"% del objetivo.";
-
-document.getElementById("message")
-.textContent =
-"Para conseguir lo que falta en 12 meses necesitan aproximadamente " +
-formatoEuro(mensual) +
-" al mes entre los dos.";
-
-}
-
-
-mostrarHistorial();
-
-}
-
+/* =========================================================
+   HISTORIAL
+   ========================================================= */
 
 function mostrarHistorial() {
 
-const contenedor =
-document.getElementById("history");
+    const contenedor =
+        document.getElementById("history");
 
-contenedor.innerHTML = "";
 
-if(aportes.length === 0) {
+    contenedor.innerHTML = "";
 
-contenedor.innerHTML =
-'<p class="small">Todavía no hay aportes.</p>';
 
-return;
+    if (aportes.length === 0) {
+
+        contenedor.innerHTML =
+            '<p class="small">' +
+            'Todavía no hay aportes.' +
+            '</p>';
+
+        return;
+
+    }
+
+
+    [...aportes]
+        .reverse()
+        .forEach(aporte => {
+
+            const fila =
+                document.createElement("div");
+
+
+            fila.className =
+                "row";
+
+
+            fila.innerHTML =
+
+                "<span>" +
+                aporte.persona +
+                " · " +
+                aporte.mes +
+                "</span>" +
+
+                "<strong>" +
+                formatoEuro(
+                    Number(aporte.cantidad)
+                ) +
+                "</strong>";
+
+
+            contenedor.appendChild(
+                fila
+            );
+
+        });
 
 }
 
 
-[...aportes]
-.reverse()
-.forEach(aporte => {
-
-const fila =
-document.createElement("div");
-
-fila.className = "row";
-
-fila.innerHTML =
-
-"<span>" +
-aporte.persona +
-" · " +
-aporte.mes +
-"</span>" +
-
-"<strong>" +
-formatoEuro(aporte.cantidad) +
-"</strong>";
-
-contenedor.appendChild(fila);
-
-});
-
-}
-
+/* =========================================================
+   GUARDAR APORTE
+   ========================================================= */
 
 document
-.getElementById("savingForm")
-.addEventListener(
-"submit",
-function(event) {
+    .getElementById("savingForm")
+    .addEventListener(
+        "submit",
+        function(event) {
 
-event.preventDefault();
-
-
-const persona =
-document.getElementById("person").value;
-
-const cantidad =
-Number(
-document.getElementById("amount").value
-);
-
-const mes =
-document.getElementById("month").value;
+            event.preventDefault();
 
 
-if(!cantidad || cantidad <= 0) {
-
-alert("Introduce una cantidad válida.");
-
-return;
-
-}
+            const persona =
+                document
+                    .getElementById("person")
+                    .value;
 
 
-aportes.push({
-
-persona: persona,
-
-cantidad: cantidad,
-
-mes: mes,
-
-fecha: new Date().toISOString()
-
-});
+            const cantidad =
+                Number(
+                    document
+                        .getElementById("amount")
+                        .value
+                );
 
 
-guardarDatos();
+            const mes =
+                document
+                    .getElementById("month")
+                    .value;
 
-document.getElementById("amount")
-.value = "";
 
-actualizar();
+            if (
+                !cantidad ||
+                cantidad <= 0
+            ) {
 
-});
+                alert(
+                    "Introduce una cantidad válida."
+                );
 
+                return;
+
+            }
+
+
+            aportes.push({
+
+                persona: persona,
+
+                cantidad: cantidad,
+
+                mes: mes,
+
+                fecha:
+                    new Date().toISOString()
+
+            });
+
+
+            guardarDatos();
+
+
+            document
+                .getElementById("amount")
+                .value = "";
+
+
+            actualizar();
+
+
+            /*
+               Pequeño desplazamiento hacia
+               la meta después de guardar.
+            */
+
+            document
+                .getElementById("ahorro")
+                .scrollIntoView({
+                    behavior: "smooth",
+                    block: "center"
+                });
+
+        }
+    );
+
+
+/* =========================================================
+   BORRAR HISTORIAL
+   ========================================================= */
 
 document
-.getElementById("clearButton")
-.addEventListener(
-"click",
-function() {
+    .getElementById("clearButton")
+    .addEventListener(
+        "click",
+        function() {
 
-if(
-confirm(
-"¿Seguro que quieres borrar todo el historial?"
-)
-) {
+            if (
+                confirm(
+                    "¿Seguro que quieres borrar todo el historial?"
+                )
+            ) {
 
-aportes = [];
+                aportes = [];
 
-guardarDatos();
+                guardarDatos();
 
-actualizar();
+                actualizar();
+
+            }
+
+        }
+    );
+
+
+/* =========================================================
+   CUENTA ATRÁS
+   ========================================================= */
+
+function actualizarCuentaAtras() {
+
+    const ahora =
+        new Date();
+
+
+    const diferencia =
+        FECHA_VIAJE - ahora;
+
+
+    if (diferencia <= 0) {
+
+        document.getElementById("days")
+            .textContent = "0";
+
+        document.getElementById("hours")
+            .textContent = "0";
+
+        document.getElementById("minutes")
+            .textContent = "0";
+
+        document.getElementById("seconds")
+            .textContent = "0";
+
+        return;
+
+    }
+
+
+    const segundosTotales =
+        Math.floor(
+            diferencia / 1000
+        );
+
+
+    const dias =
+        Math.floor(
+            segundosTotales / 86400
+        );
+
+
+    const horas =
+        Math.floor(
+            (segundosTotales % 86400)
+            / 3600
+        );
+
+
+    const minutos =
+        Math.floor(
+            (segundosTotales % 3600)
+            / 60
+        );
+
+
+    const segundos =
+        segundosTotales % 60;
+
+
+    document.getElementById("days")
+        .textContent =
+        dias;
+
+
+    document.getElementById("hours")
+        .textContent =
+        String(horas)
+            .padStart(2, "0");
+
+
+    document.getElementById("minutes")
+        .textContent =
+        String(minutos)
+            .padStart(2, "0");
+
+
+    document.getElementById("seconds")
+        .textContent =
+        String(segundos)
+            .padStart(2, "0");
 
 }
 
-});
 
+/* =========================================================
+   INICIO
+   ========================================================= */
 
 cargarDatos();
 
 actualizar();
+
+actualizarCuentaAtras();
+
+
+/*
+   Actualiza el cronómetro
+   cada segundo.
+*/
+
+setInterval(
+    actualizarCuentaAtras,
+    1000
+);
 
 </script>
 
