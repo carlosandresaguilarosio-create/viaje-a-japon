@@ -1,0 +1,650 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Japón 2027 🇯🇵</title>
+
+<style>
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    background: #f5f7fb;
+    color: #172033;
+}
+
+.container {
+    max-width: 600px;
+    margin: auto;
+    padding: 18px;
+}
+
+.header {
+    text-align: center;
+    padding: 20px 10px;
+}
+
+.header h1 {
+    margin: 0;
+    font-size: 30px;
+}
+
+.header p {
+    color: #667085;
+}
+
+.card {
+    background: white;
+    border-radius: 18px;
+    padding: 18px;
+    margin-bottom: 14px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+}
+
+.label {
+    color: #667085;
+    font-size: 13px;
+}
+
+.big {
+    font-size: 30px;
+    font-weight: 800;
+    margin-top: 4px;
+}
+
+.progress-background {
+    height: 20px;
+    background: #e5e7eb;
+    border-radius: 20px;
+    overflow: hidden;
+    margin-top: 12px;
+}
+
+.progress {
+    height: 100%;
+    width: 0%;
+    background: #2563eb;
+    transition: width .3s;
+}
+
+.stats {
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    gap: 10px;
+}
+
+.stat {
+    background: #f8fafc;
+    border-radius: 14px;
+    padding: 14px;
+}
+
+input, select, button {
+    width: 100%;
+    padding: 13px;
+    border-radius: 10px;
+    font-size: 16px;
+}
+
+input, select {
+    border: 1px solid #d0d5dd;
+    background: white;
+}
+
+button {
+    border: none;
+    background: #2563eb;
+    color: white;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+button.secondary {
+    background: white;
+    color: #172033;
+    border: 1px solid #d0d5dd;
+}
+
+.form-group {
+    margin-bottom: 12px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 6px;
+    font-size: 13px;
+    color: #667085;
+}
+
+.row {
+    display: flex;
+    justify-content: space-between;
+    padding: 11px 0;
+    border-bottom: 1px solid #edf0f3;
+}
+
+.row:last-child {
+    border-bottom: none;
+}
+
+.success {
+    background: #ecfdf3;
+    color: #067647;
+    padding: 14px;
+    border-radius: 12px;
+}
+
+.history {
+    max-height: 250px;
+    overflow-y: auto;
+}
+
+.small {
+    font-size: 13px;
+    color: #667085;
+}
+
+@media (max-width: 450px) {
+    .stats {
+        grid-template-columns: 1fr;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<div class="header">
+    <h1>🇯🇵 Japón 2027</h1>
+    <p>Fondo de ahorro para nuestro viaje</p>
+</div>
+
+<div class="card">
+
+<div class="label">🎯 META TOTAL</div>
+
+<div class="big">5.500 €</div>
+
+<div style="display:flex;justify-content:space-between;margin-top:15px;">
+    <strong id="percentage">0%</strong>
+    <span id="remaining">Faltan 5.500 €</span>
+</div>
+
+<div class="progress-background">
+    <div class="progress" id="progress"></div>
+</div>
+
+<p class="small" id="status">
+    Todavía no hay ahorro registrado.
+</p>
+
+</div>
+
+
+<div class="stats">
+
+<div class="stat">
+    <div class="label">👨 Carlos</div>
+    <div class="big" id="carlos">0 €</div>
+</div>
+
+<div class="stat">
+    <div class="label">👩 María</div>
+    <div class="big" id="maria">0 €</div>
+</div>
+
+</div>
+
+
+<div class="card">
+
+<h3>📊 Situación actual</h3>
+
+<div class="row">
+    <span>💰 Ahorrado</span>
+    <strong id="saved">0 €</strong>
+</div>
+
+<div class="row">
+    <span>❌ Falta</span>
+    <strong id="left">5.500 €</strong>
+</div>
+
+<div class="row">
+    <span>📅 Necesario por mes</span>
+    <strong id="monthly">459 €</strong>
+</div>
+
+</div>
+
+
+<div class="card">
+
+<h3>➕ Registrar ahorro</h3>
+
+<form id="savingForm">
+
+<div class="form-group">
+<label>¿Quién aporta?</label>
+
+<select id="person">
+<option value="Carlos">Carlos</option>
+<option value="María">María</option>
+</select>
+
+</div>
+
+
+<div class="form-group">
+<label>Cantidad (€)</label>
+
+<input
+type="number"
+id="amount"
+placeholder="230"
+min="0.01"
+step="0.01"
+required
+>
+
+</div>
+
+
+<div class="form-group">
+<label>Mes</label>
+
+<select id="month">
+
+<option>Enero</option>
+<option>Febrero</option>
+<option>Marzo</option>
+<option>Abril</option>
+<option>Mayo</option>
+<option>Junio</option>
+<option>Julio</option>
+<option>Agosto</option>
+<option>Septiembre</option>
+<option>Octubre</option>
+<option>Noviembre</option>
+<option>Diciembre</option>
+
+</select>
+
+</div>
+
+<button type="submit">
+Guardar aporte 💰
+</button>
+
+</form>
+
+</div>
+
+
+<div class="card">
+
+<h3>🧾 Historial</h3>
+
+<div id="history" class="history">
+<p class="small">Todavía no hay aportes.</p>
+</div>
+
+<br>
+
+<button
+class="secondary"
+id="clearButton"
+type="button">
+
+Borrar historial
+
+</button>
+
+</div>
+
+
+<div class="card">
+
+<h3>🧳 Presupuesto Japón</h3>
+
+<div class="row">
+<span>✈️ Vuelos</span>
+<strong>2.000 €</strong>
+</div>
+
+<div class="row">
+<span>🏨 Hoteles</span>
+<strong>900 €</strong>
+</div>
+
+<div class="row">
+<span>🚄 Transporte</span>
+<strong>400 €</strong>
+</div>
+
+<div class="row">
+<span>🍜 Comida</span>
+<strong>650 €</strong>
+</div>
+
+<div class="row">
+<span>🎎 Actividades</span>
+<strong>250 €</strong>
+</div>
+
+<div class="row">
+<span>🛍️ Compras</span>
+<strong>800 €</strong>
+</div>
+
+<div class="row">
+<span>🛡️ Seguro + imprevistos</span>
+<strong>500 €</strong>
+</div>
+
+</div>
+
+
+<div class="card">
+
+<h3>🎯 Objetivo</h3>
+
+<div id="message" class="small">
+
+Si cada uno aporta aproximadamente 230 € al mes,
+llegarán prácticamente a los 5.500 € en 12 meses.
+
+</div>
+
+</div>
+
+</div>
+
+
+<script>
+
+const META = 5500;
+
+let aportes = [];
+
+const formatoEuro = cantidad => {
+
+return new Intl.NumberFormat(
+"es-ES",
+{
+style:"currency",
+currency:"EUR",
+maximumFractionDigits:0
+}
+).format(cantidad);
+
+};
+
+
+function guardarDatos() {
+
+localStorage.setItem(
+"japon2027_aportes",
+JSON.stringify(aportes)
+);
+
+}
+
+
+function cargarDatos() {
+
+const datos = localStorage.getItem(
+"japon2027_aportes"
+);
+
+if(datos) {
+
+try {
+
+aportes = JSON.parse(datos);
+
+} catch {
+
+aportes = [];
+
+}
+
+}
+
+}
+
+
+function actualizar() {
+
+let totalCarlos = 0;
+let totalMaria = 0;
+
+aportes.forEach(aporte => {
+
+if(aporte.persona === "Carlos") {
+
+totalCarlos += aporte.cantidad;
+
+}
+
+if(aporte.persona === "María") {
+
+totalMaria += aporte.cantidad;
+
+}
+
+});
+
+
+const total = totalCarlos + totalMaria;
+
+const falta = Math.max(
+0,
+META - total
+);
+
+const porcentaje = Math.min(
+100,
+(total / META) * 100
+);
+
+
+document.getElementById("carlos")
+.textContent = formatoEuro(totalCarlos);
+
+document.getElementById("maria")
+.textContent = formatoEuro(totalMaria);
+
+document.getElementById("saved")
+.textContent = formatoEuro(total);
+
+document.getElementById("left")
+.textContent = formatoEuro(falta);
+
+document.getElementById("percentage")
+.textContent = porcentaje.toFixed(1) + "%";
+
+document.getElementById("remaining")
+.textContent =
+falta === 0
+? "🎌 ¡Meta alcanzada!"
+: "Faltan " + formatoEuro(falta);
+
+
+document.getElementById("progress")
+.style.width = porcentaje + "%";
+
+
+const mensual = falta / 12;
+
+document.getElementById("monthly")
+.textContent = formatoEuro(mensual);
+
+
+if(falta === 0) {
+
+document.getElementById("status")
+.innerHTML =
+"🎉 <strong>¡Han conseguido la meta de Japón!</strong>";
+
+document.getElementById("message")
+.innerHTML =
+"🎌 ¡5.500 € conseguidos! Ahora pueden concentrarse en reservar vuelos y hoteles.";
+
+} else {
+
+document.getElementById("status")
+.textContent =
+"Ya tienen " +
+porcentaje.toFixed(1) +
+"% del objetivo.";
+
+document.getElementById("message")
+.textContent =
+"Para conseguir lo que falta en 12 meses necesitan aproximadamente " +
+formatoEuro(mensual) +
+" al mes entre los dos.";
+
+}
+
+
+mostrarHistorial();
+
+}
+
+
+function mostrarHistorial() {
+
+const contenedor =
+document.getElementById("history");
+
+contenedor.innerHTML = "";
+
+if(aportes.length === 0) {
+
+contenedor.innerHTML =
+'<p class="small">Todavía no hay aportes.</p>';
+
+return;
+
+}
+
+
+[...aportes]
+.reverse()
+.forEach(aporte => {
+
+const fila =
+document.createElement("div");
+
+fila.className = "row";
+
+fila.innerHTML =
+
+"<span>" +
+aporte.persona +
+" · " +
+aporte.mes +
+"</span>" +
+
+"<strong>" +
+formatoEuro(aporte.cantidad) +
+"</strong>";
+
+contenedor.appendChild(fila);
+
+});
+
+}
+
+
+document
+.getElementById("savingForm")
+.addEventListener(
+"submit",
+function(event) {
+
+event.preventDefault();
+
+
+const persona =
+document.getElementById("person").value;
+
+const cantidad =
+Number(
+document.getElementById("amount").value
+);
+
+const mes =
+document.getElementById("month").value;
+
+
+if(!cantidad || cantidad <= 0) {
+
+alert("Introduce una cantidad válida.");
+
+return;
+
+}
+
+
+aportes.push({
+
+persona: persona,
+
+cantidad: cantidad,
+
+mes: mes,
+
+fecha: new Date().toISOString()
+
+});
+
+
+guardarDatos();
+
+document.getElementById("amount")
+.value = "";
+
+actualizar();
+
+});
+
+
+document
+.getElementById("clearButton")
+.addEventListener(
+"click",
+function() {
+
+if(
+confirm(
+"¿Seguro que quieres borrar todo el historial?"
+)
+) {
+
+aportes = [];
+
+guardarDatos();
+
+actualizar();
+
+}
+
+});
+
+
+cargarDatos();
+
+actualizar();
+
+</script>
+
+</body>
+</html>
